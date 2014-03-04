@@ -1,0 +1,182 @@
+body {
+    background-color: #f2f2f2;
+    font-family: Lato;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Raleway;
+    font-weight: 300;
+    color: #333;
+}
+
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.mt {
+    padding-top: 25px;
+}
+
+#headerwrap {
+    background: #1abc9c;
+    margin-top: -10px;
+    padding-top: 20px;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#headerwrap h1 {
+    color: #fff;
+    font-size: 60px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-shadow: 0 1px 1px #444;
+}
+
+#headerwrap h2 {
+    color: #fff;
+    font-size: 40px;
+    font-weight: 100;
+    margin-bottom: 40px;
+}
+
+a {
+    color: #16a085;
+    word-wrap: break-word;
+    -webkit-transition: color .1s ease-in, background .1s ease-in;
+    -moz-transition: color .1s ease-in, background .1s ease-in;
+    -ms-transition: color .1s ease-in, background .1s ease-in;
+    -o-transition: color .1s ease-in, background .1s ease-in;
+    transition: color .1s ease-in, background .1s ease-in;
+}
+
+a:hover, a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    font-weight: bold;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+    background-color: #16a085;
+    border-color: #16a085;
+}
+
+#services {
+    background: #1abc9c;
+    margin-top: 25px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    font-weight: normal;
+}
+
+#services h3 {
+    color: #fff;
+    font-weight: bold;
+}
+
+#services p {
+    color: #fff;
+}
+
+#services i {
+    color: #fff;
+    font-size: 35px;
+    margin-top: 22px;
+}
+
+#services a {
+    color: #eee;
+    font-weight: bold;
+}
+
+.btn {
+    box-shadow: 2px 2px 2px #777;
+}
+
+.input-group-btn .btn {
+    box-shadow: none;
+}
+
+.btn.browser-action {
+    line-height: 1;
+    padding: 5px;
+    margin-left: 0.5em;
+    vertical-align: text-top;
+    box-shadow: none;
+}
+
+.btn:hover {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    box-shadow: 1px 1px 2px #777;
+}
+
+.cro-service {
+    height: 54px;
+    width: 54px;
+    background-size: 54px 54px;
+}
+
+.cro-science-lab {
+    background-image: url(images/science-lab.png);
+}
+
+.cro-octocat {
+    background-image: url(images/octocat.png);
+}
+
+.cro-figshare {
+    background-image: url(images/figshare.png);
+}
+
+.cro-step-number {
+    position: relative;
+    font-size: 2em;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    padding: 5px;
+}
+
+.cro-step-number span {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    color: white;
+    font-size: 80%;
+}
+
+#extensions p {
+    margin-bottom: 10px;
+}
+
+footer {
+    min-height: 80px;
+    background: #1abc9c;
+    margin-top: 40px;
+}

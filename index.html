@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Code as a Research Object</title>
+
+	<!-- fonts -->
+	<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet">
+
+	<!-- styles -->
+	<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="theme.css" rel="stylesheet">
+</head>
+<body>
+
+	<!-- HEADER -->
+	<div id="headerwrap">
+		<div class="container">
+			<h1>Code as a Research Object</h1>
+			<h2>Mozilla Science Lab</h2>
+		</div>
+	</div>
+
+	<!-- WELCOME -->
+	<div class="container">
+		<div class="row mt">
+			<div class="col-lg-8">
+				<h1>Get credit for your code!</h1>
+				<p>Archive your GitHub code repository to figshare and receive a citable DOI.</p>
+			</div>
+			<div class="col-lg-4">
+				<p class="pull-right"><br><a class="btn btn-primary" href="#extensions">Start Now</a></p>
+			</div>
+		</div>
+	</div>
+
+	<!-- SERVICES -->
+	<div id="services">
+		<div class="container">
+			<div class="row mt">
+				<div class="col-sm-1 centered">
+					<i class="fa cro-service cro-octocat"></i>
+				</div>
+
+				<div class="col-sm-3">
+					<h3>GitHub</h3>
+					<p>Edit, share and improve your code in a collaborative environment.</p>
+				</div>
+
+				<div class="col-sm-1 centered">
+					<i class="fa cro-service cro-science-lab"></i>
+				</div>
+
+				<div class="col-sm-3">
+					<h3>Mozilla Science Lab</h3>
+					<p>Tools to get your research on the web.</p>
+				</div>
+
+				<div class="col-sm-1 centered">
+					<i class="fa cro-service cro-figshare"></i>
+				</div>
+
+				<div class="col-sm-3">
+					<h3>figshare</h3>
+					<p>Persistent, citable, long-term archiving for your research outputs.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- EXTENSIONS -->
+	<div class="container" id="extensions">
+		<div class="row mt">
+			<div class="col-lg-12">
+				<h1>Install</h1>
+			</div>
+		</div>
+
+		<div>
+			<p>
+				<i class="fa fa-circle cro-step-number"><span>1</span></i>
+				Drag this button to your browser's bookmarks toolbar: <a href="javascript:location.href='http://git.macropus.org/cro/form/%23/?url='+encodeURIComponent(location.href)" class="btn btn-primary browser-action">Get a DOI</a>
+			</p>
+
+			<p>
+				<i class="fa fa-circle cro-step-number"><span>2</span></i>
+				In a GitHub repository, press the "Get a DOI" button.
+			</p>
+		</div>
+
+		<!--
+		<div>
+			<p>
+				<i class="fa fa-circle cro-step-number"><span>1</span></i>
+				Install a browser extension or bookmarklet from the list below
+			</p>
+
+			<p>
+				<i class="fa fa-circle cro-step-number"><span>2</span></i>
+				In a GitHub repository, press "Get a DOI"
+			</p>
+		</div>
+
+		<div class="row mt">
+			<div class="col-lg-3">
+				<h3>Firefox</h3>
+				<div>
+					<a href="" class="btn btn-primary">TODO</a>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<h3>Chrome</h3>
+				<div>
+					<a href="" class="btn btn-primary">TODO</a>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<h3>Safari</h3>
+				<div>
+					<a href="" class="btn btn-primary">TODO</a>
+				</div>
+			</div>
+
+			<div class="col-lg-3">
+				<h3>Other</h3>
+				<div>
+					<a href="javascript:location.href='http://git.macropus.org/cro/form/%23/?url='+encodeURIComponent(location.href)" class="btn btn-primary">Get a DOI</a>
+				</div>
+				<p>Drag this button<br>to your browser's toolbar</p>
+			</div>
+		</div>
+		-->
+
+		<div class="row mt">
+			<p>Or enter the URL of your GitHub repository here:</p>
+
+			<form action="form/" onsubmit="location.href=this.action+'#/?url='+encodeURIComponent(this.url.value); return false">
+				<div class="input-group">
+					<input type="url" value="http://github.com/"
+						id="url" name="url"
+						class="form-control"
+						placeholder="http://github.com/…">
+					<div class="input-group-btn">
+						<button type="submit" class="btn btn-primary">fetch repository</button>
+					</div>
+				</div>
+			</form>
+
+			<noscript><p>You'll need to enable JavaScript for this form to work properly</p></noscript>
+		</div>
+	</div>
+
+
+	<!-- RECENT ITEMS -->
+	<!--
+	<div class="services">
+		<div class="container">
+			<div class="row mt">
+				<div class="col-lg-12">
+					<h1>Recent Code</h1>
+				</div>
+				<div class="col-lg-8">
+					<p>The latest software to be archived in figshare</p>
+				</div>
+				<div class="col-lg-4 goright">
+					<p><a href="#"><i class="fa fa-angle-right"></i> See All Archived Code</a></p>
+				</div>
+			</div>
+
+			<div class="row mt">
+				<div class="col-lg-4">
+					<h3><a href="#">ReUBio</a></h3>
+					<p>Re-usable modules for bioinformatics</p>
+					<p><a href="#"><i class="fa fa-link"></i> Read More</a></p>
+				</div>
+				<div class="col-lg-4">
+					<h3><a href="#">BOGFOOT</a></h3>
+					<p>Biology Of Giant Flies On Outsize Trees</p>
+					<p><a href="#"><i class="fa fa-link"></i> Read More</a></p>
+				</div>
+				<div class="col-lg-4">
+					<h3><a href="#">FLAPJACKS</a></h3>
+					<p>Feature Lists and Presentation Jackets - templates for journal club talks.</p>
+					<p><a href="#"><i class="fa fa-link"></i> Read More</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	-->
+
+	<footer>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "code-research-object",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mozillascience/code-research-object",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.13",
+    "bootstrap": "~3.1.1",
+    "font-awesome": "~4.0.3"
+  }
+}

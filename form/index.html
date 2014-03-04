@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Code as a Research Object</title>
+
+	<!-- fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,300,700" rel="stylesheet">
+
+	<!-- styles -->
+	<link href="../vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="../vendor/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="../theme.css" rel="stylesheet">
+
+	<!-- scripts -->
+	<script src="../vendor/angular/angular.js"></script>
+	<script src="controller.js"></script>
+</head>
+
+<body ng-app="croApp">
+
+	<!-- FORM -->
+	<div class="container" ng-controller="croController">
+		<div class="row mt">
+			<div class="col-lg-12" id="repository-start">
+				<!--<h1>Archive your code</h1>-->
+
+				<noscript><p>Please enable JavaScript in your browser.</p></noscript>
+
+				<form data-action="http://figshare.com/import/" ng-submit="archiveRepository()">
+					<fieldset ng-show="!query.url">
+						<legend>Enter the URL of your GitHub repository</legend>
+
+						<div class="form-group">
+							<label for="url">URL</label>
+							<input type="url"
+								id="url" name="url"
+								class="form-control"
+								placeholder="http://github.com/…"
+								ng-model="url" ng-change="parseURL()">
+
+						</div>
+					</fieldset>
+
+					<fieldset ng-show="archive">
+						<!--<legend>Make sure the description is complete</legend>-->
+
+						<div class="form-group">
+							<label for="repository">Repository</label>
+							<input type="text" readonly
+								id="repository" name="repository"
+								class="form-control"
+								placeholder="http://github.com/…"
+								ng-model="repository" ng-change="fetchRepository()">
+						</div>
+
+						<div class="form-group">
+							<label for="description">Short Description</label>
+							<input type="text"
+								id="description" name="description"
+								class="form-control"
+								placeholder="Describe this project"
+								ng-model="description">
+						</div>
+
+						<div class="form-group">
+							<label for="contributors">Contributors</label>
+							<input type="text"
+								id="contributors" name="contributors"
+								class="form-control"
+								placeholder="Contributor names"
+								ng-model="contributors">
+						</div>
+
+						<div class="form-group">
+							<label for="license">License</label>
+							<input type="text"
+								id="license" name="license"
+								class="form-control"
+								placeholder="Unknown"
+								ng-model="license">
+						</div>
+					</fieldset>
+
+					<input type="hidden" ng-model="url">
+					<input type="hidden" ng-model="name">
+					<input type="hidden" ng-model="owner">
+					<input type="hidden" ng-model="archive">
+
+					<fieldset ng-show="archive">
+						<!--<legend>Post to a repository</legend>-->
+						<button type="submit" class="btn btn-primary">Archive in figshare</button>
+					</fieldset>
+
+				</form>
+
+			</div><!-- col-lg-12 -->
+		</div><!-- row -->
+	</div><!-- container -->
+
+</body>
