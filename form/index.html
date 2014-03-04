@@ -28,13 +28,13 @@
 
 				<noscript><p>Please enable JavaScript in your browser.</p></noscript>
 
-				<form data-action="http://figshare.com/import/" ng-submit="archiveRepository()">
+				<form action="http://figshare.com/import/">
 					<fieldset ng-show="!query.url">
 						<legend>Enter the URL of your GitHub repository</legend>
 
 						<div class="form-group">
 							<label for="url">URL</label>
-							<input type="url"
+							<input type="url" required
 								id="url" name="url"
 								class="form-control"
 								placeholder="http://github.com/…"
@@ -43,12 +43,14 @@
 						</div>
 					</fieldset>
 
+					<div ng-show="query.url &amp;&amp; !archive">Loading…</div>
+
 					<fieldset ng-show="archive">
 						<!--<legend>Make sure the description is complete</legend>-->
 
 						<div class="form-group">
-							<label for="repository">Repository</label>
-							<input type="text" readonly
+							<label for="repository">Name</label>
+							<input type="text" readonly required
 								id="repository" name="repository"
 								class="form-control"
 								placeholder="http://github.com/…"
@@ -56,12 +58,22 @@
 						</div>
 
 						<div class="form-group">
-							<label for="description">Short Description</label>
-							<input type="text"
-								id="description" name="description"
+							<label for="homepage">Home Page</label>
+							<input type="url"
+								id="homepage" name="homepage"
 								class="form-control"
-								placeholder="Describe this project"
-								ng-model="description">
+								placeholder="http://"
+								ng-model="homepage">
+						</div>
+
+						<div class="form-group">
+							<label for="author">Author</label>
+							<input type="text" required
+								id="author" name="author"
+								class="form-control"
+								placeholder="First Last <first.last@example.com>"
+								ng-model="author">
+							<p class="help-block">The current maintainer of the project</p>
 						</div>
 
 						<div class="form-group">
@@ -69,17 +81,88 @@
 							<input type="text"
 								id="contributors" name="contributors"
 								class="form-control"
-								placeholder="Contributor names"
-								ng-model="contributors">
+								placeholder="First Last, First Last, First Last"
+								ng-model="contributors" ng-list>
+							<p class="help-block">People who contributed to the project</p>
+						</div>
+
+						<div class="form-group">
+							<label for="summary">Summary</label>
+							<input type="text" required
+								id="summary" name="summary"
+								class="form-control"
+								placeholder="Enter a summary…"
+								ng-model="summary">
+							<p class="help-block">Summarise this project in a single sentence</p>
 						</div>
 
 						<div class="form-group">
 							<label for="license">License</label>
-							<input type="text"
+							<select required
 								id="license" name="license"
 								class="form-control"
-								placeholder="Unknown"
 								ng-model="license">
+								<!-- https://spdx.org/licenses/ -->
+								<option value="">Select a license…</option>
+								<option value="MIT">MIT License</option>
+								<option value="Apache-2.0">Apache License 2.0</option>
+								<option value="GPL-2.0">GNU General Public License v2.0</option>
+								<option value="GPL-3.0">GNU General Public License v3.0</option>
+							</select>
+							<p class="help-block"><a
+							   href="http://choosealicense.com/" target="_blank">Choose a license</a></p>
+						</div>
+
+						<div class="form-group">
+							<label for="description">Description</label>
+							<textarea
+								id="description" name="description"
+								class="form-control"
+								placeholder="Describe this project…"
+								ng-model="description"></textarea>
+							<p class="help-block">Describe this project in one or two paragraphs (optional)</p>
+						</div>
+
+						<div class="form-group">
+							<label for="keywords">Keywords</label>
+							<input type="text"
+								id="keywords" name="keywords"
+								class="form-control"
+								placeholder="keyword, keyword, keyword"
+								ng-model="keywords" ng-list>
+						</div>
+
+						<div class="form-group">
+							<label for="language">Programming Language</label>
+							<select multiple size="7"
+								id="language" name="language"
+								class="form-control"
+								ng-model="language">
+								<option value="r">R</option>
+								<option value="python">Python</option>
+								<option value="Java">Java</option>
+								<option value="perl">Perl</option>
+								<option value="php">PHP</option>
+								<option value="javascript">JavaScript</option>
+								<option value="other">Other</option>
+							</select>
+							<p class="help-block">The main programming language(s) that this project uses.</p>
+						</div>
+
+						<div class="form-group">
+							<label for="platform">Platform</label>
+							<select multiple size="6"
+								id="platform" name="platform"
+								class="form-control"
+								ng-model="platform">
+								<option value="linux">Linux</option>
+								<option value="osx">OS X</option>
+								<option value="windows">Windows</option>
+								<option value="web">Web</option>
+								<option value="all">All</option>
+								<option value="other">Other</option>
+							</select>
+							<p class="help-block">The platform that this project runs on.</p>
 						</div>
 					</fieldset>
 
@@ -98,5 +181,15 @@
 			</div><!-- col-lg-12 -->
 		</div><!-- row -->
 	</div><!-- container -->
+
+	<footer>
+		<div class="container">
+			<div class="row mt">
+				<div class="col-lg-12">
+					<a href="../">About</a>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 </body>

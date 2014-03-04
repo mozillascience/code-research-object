@@ -108,7 +108,7 @@ a:hover, a:focus {
     margin-top: 22px;
 }
 
-#services a {
+#services a, footer a {
     color: #eee;
     font-weight: bold;
 }
