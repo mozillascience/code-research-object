@@ -43,6 +43,8 @@ app.controller('croController', function croController($scope, $location, $http,
 					fetchOwner(data.owner);
 				}
 
+				fetchContributors(data.contributors_url);
+
 				// TODO: fetch releases and choose the latest version, set $scope.version
 			});
 
@@ -52,8 +54,8 @@ app.controller('croController', function croController($scope, $location, $http,
 		}, 1000);
 	};
 
-	var fetchOwner = function(user) {
-		request = $http({
+	var fetchUser = function(user) {
+		return $http({
 			method: 'GET',
 			url: user.url,
 			dataType: 'json',
@@ -61,9 +63,47 @@ app.controller('croController', function croController($scope, $location, $http,
 		        Accept: 'application/vnd.github.v3'
 		    },
 		});
+	}
+
+	var fetchOwner = function(user) {
+		request = fetchUser(user);
 
 		request.success(function (data, status, headers, config) {
-			$scope.maintainer = [data.name];
+			$scope.maintainer = data.name;
+		});
+
+		request.error(function(data, status, headers, config) {
+			console.log(data);
+		});
+	};
+
+	var fetchContributor = function(contributor) {
+		request = fetchUser(contributor);
+
+		request.success(function (data, status, headers, config) {
+			//if (data.name && data.name != $scope.maintainer) {
+			if (data.name) {
+				$scope.contributors.push(data.name);
+			}
+		});
+
+		request.error(function(data, status, headers, config) {
+			console.log(data);
+		});
+	};
+
+	var fetchContributors = function(url) {
+		request = $http({
+			method: 'GET',
+			url: url,
+			dataType: 'json',
+			headers: {
+		        Accept: 'application/vnd.github.v3'
+		    },
+		});
+
+		request.success(function (data, status, headers, config) {
+			angular.forEach(data.slice(0, 3), fetchContributor);
 		});
 
 		request.error(function(data, status, headers, config) {
