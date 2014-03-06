@@ -39,7 +39,9 @@ app.controller('croController', function croController($scope, $location, $http,
 				$scope.contributors = [];
 				$scope.version = null;
 
-				fetchOwner(data.owner);
+				if (data.owner.type == 'User') {
+					fetchOwner(data.owner);
+				}
 
 				// TODO: fetch releases and choose the latest version, set $scope.version
 			});
@@ -61,7 +63,7 @@ app.controller('croController', function croController($scope, $location, $http,
 		});
 
 		request.success(function (data, status, headers, config) {
-			$scope.author = [data.name];
+			$scope.maintainer = [data.name];
 		});
 
 		request.error(function(data, status, headers, config) {
