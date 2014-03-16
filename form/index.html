@@ -22,174 +22,193 @@
 
 	<!-- FORM -->
 	<div class="container" ng-controller="croController">
-		<div class="row mt">
-			<div class="col-lg-12" id="repository-start">
-				<!--<h1>Archive your code</h1>-->
 
-				<noscript><p>Please enable JavaScript in your browser.</p></noscript>
+		<form action="http://figshare.com/external/github/import">
+			<!--<h1>Archive your code</h1>-->
 
-				<form action="http://figshare.com/import/">
+			<noscript><p>Please enable JavaScript in your browser.</p></noscript>
+
+			<div class="row mt">
+				<div class="col-lg-12" id="repository-start">
+
 					<fieldset ng-show="!query.url">
 						<legend>Enter the URL of your GitHub repository</legend>
 
 						<div class="form-group">
 							<label for="url">URL</label>
 							<input type="url" required
-								id="url" name="url"
-								class="form-control"
-								placeholder="http://github.com/…"
-								ng-model="url" ng-change="parseURL()">
+							id="url" name="url"
+							class="form-control"
+							placeholder="http://github.com/…"
+							ng-model="url" ng-change="parseURL()">
 
 						</div>
 					</fieldset>
+				</div>
+			</div>
 
-					<div ng-show="query.url &amp;&amp; !archive">Loading…</div>
+			<div class="row mt">
+				<div class="col-lg-12">
+
+					<div ng-show="query.url &amp;&amp; !archive">Fetching repository information…</div>
 
 					<fieldset ng-show="archive">
+						<h2>Project Metadata</h2>
+
+						<p>To help people find your project, it's useful to provide as much of this information as possible:</p>
+
 						<!--<legend>Make sure the description is complete</legend>-->
 
 						<div class="form-group">
 							<label for="repository">Name</label>
 							<input type="text" readonly required
-								id="repository" name="repository"
-								class="form-control"
-								placeholder="http://github.com/…"
-								ng-model="repository" ng-change="fetchRepository()">
+							id="repository" name="repository"
+							class="form-control"
+							placeholder="http://github.com/…"
+							ng-model="repository" ng-change="fetchRepository()">
 						</div>
 
 						<div class="form-group">
 							<label for="homepage">Home Page</label>
 							<input type="url"
-								id="homepage" name="homepage"
-								class="form-control"
-								placeholder="http://"
-								ng-model="homepage">
+							id="homepage" name="homepage"
+							class="form-control"
+							placeholder="http://"
+							ng-model="homepage">
 						</div>
 
 						<div class="form-group">
 							<label for="maintainer">Maintainer</label>
 							<input type="text" required
-								id="maintainer" name="maintainer"
-								class="form-control"
-								placeholder="First Last <first.last@example.com>"
-								ng-model="maintainer">
+							id="maintainer" name="maintainer"
+							class="form-control"
+							placeholder="First Last <first.last@example.com>"
+							ng-model="maintainer">
 							<p class="help-block">The current maintainer of the project</p>
 						</div>
 
 						<div class="form-group">
 							<label for="contributors">Contributors</label>
 							<input type="text"
-								id="contributors" name="contributors"
-								class="form-control"
-								placeholder="First Last, First Last, First Last"
-								ng-model="contributors" ng-list>
+							id="contributors" name="contributors"
+							class="form-control"
+							placeholder="First Last, First Last, First Last"
+							ng-model="contributors" ng-list>
 							<p class="help-block">People who contributed to the project</p>
 						</div>
 
 						<div class="form-group">
 							<label for="summary">Summary</label>
 							<input type="text" required
-								id="summary" name="summary"
-								class="form-control"
-								placeholder="Enter a summary…"
-								ng-model="summary">
+							id="summary" name="summary"
+							class="form-control"
+							placeholder="Enter a summary…"
+							ng-model="summary">
 							<p class="help-block">Summarise this project in a single sentence</p>
 						</div>
 
 						<div class="form-group">
 							<label for="license">License</label>
 							<select required
-								id="license" name="license"
-								class="form-control"
-								ng-model="license">
-								<!-- https://spdx.org/licenses/ -->
-								<option value="">Select a license…</option>
-								<option value="MIT">MIT License</option>
-								<option value="Apache-2.0">Apache License 2.0</option>
-								<option value="GPL-3.0">GNU General Public License v3.0</option>
-							</select>
-							<p class="help-block"><a
-							   href="http://choosealicense.com/" target="_blank">Choose a license</a></p>
+							id="license" name="license"
+							class="form-control"
+							ng-model="license">
+							<!-- https://spdx.org/licenses/ -->
+							<option value="">Select a license…</option>
+							<option value="MIT">MIT License</option>
+							<option value="Apache-2.0">Apache License 2.0</option>
+							<option value="GPL-3.0">GNU General Public License v3.0</option>
+						</select>
+						<p class="help-block"><a
+							href="http://choosealicense.com/" target="_blank">Choose a license</a></p>
 						</div>
 
 						<div class="form-group">
 							<label for="description">Description</label>
 							<textarea
-								id="description" name="description"
-								class="form-control"
-								placeholder="Describe this project…"
-								ng-model="description"></textarea>
+							id="description" name="description"
+							class="form-control"
+							placeholder="Describe this project…"
+							ng-model="description"></textarea>
 							<p class="help-block">Describe this project in one or two paragraphs (optional)</p>
 						</div>
 
 						<div class="form-group">
 							<label for="keywords">Keywords</label>
 							<input type="text"
-								id="keywords" name="keywords"
-								class="form-control"
-								placeholder="keyword, keyword, keyword"
-								ng-model="keywords" ng-list>
+							id="keywords" name="keywords"
+							class="form-control"
+							placeholder="keyword, keyword, keyword"
+							ng-model="keywords" ng-list>
 							<p class="help-block">To help people find your project</p>
 						</div>
 
 						<div class="form-group">
 							<label for="language">Programming Language</label>
 							<select multiple size="7"
-								id="language" name="language"
-								class="form-control"
-								ng-model="language">
-								<option value="r">R</option>
-								<option value="python">Python</option>
-								<option value="Java">Java</option>
-								<option value="perl">Perl</option>
-								<option value="php">PHP</option>
-								<option value="javascript">JavaScript</option>
-								<option value="other">Other</option>
-							</select>
-							<p class="help-block">The main programming language(s) that this project uses</p>
-						</div>
+							id="language" name="language"
+							class="form-control"
+							ng-model="language">
+							<option value="Java">Java</option>
+							<option value="javascript">JavaScript</option>
+							<option value="perl">Perl</option>
+							<option value="php">PHP</option>
+							<option value="python">Python</option>
+							<option value="r">R</option>
+							<option value="other">Other</option>
+						</select>
+						<p class="help-block">The main programming language(s) that this project uses</p>
+					</div>
 
-						<div class="form-group">
-							<label for="platform">Platform</label>
-							<select multiple size="6"
-								id="platform" name="platform"
-								class="form-control"
-								ng-model="platform">
-								<option value="linux">Linux</option>
-								<option value="osx">OS X</option>
-								<option value="windows">Windows</option>
-								<option value="web">Web</option>
-								<option value="all">All</option>
-								<option value="other">Other</option>
-							</select>
-							<p class="help-block">The platform that this project runs on</p>
-						</div>
-					</fieldset>
-
-					<input type="hidden" ng-model="url">
-					<input type="hidden" ng-model="name">
-					<input type="hidden" ng-model="owner">
-					<input type="hidden" ng-model="archive">
-
-					<fieldset ng-show="archive">
-						<!--<legend>Post to a repository</legend>-->
-						<button type="submit" class="btn btn-primary">Archive in figshare</button>
-					</fieldset>
-
-				</form>
-
-			</div><!-- col-lg-12 -->
-		</div><!-- row -->
-	</div><!-- container -->
-
-	<footer>
-		<div class="container">
-			<div class="row mt">
-				<div class="col-lg-12">
-					<a href="../">About</a>
+					<div class="form-group">
+						<label for="platform">Platform</label>
+						<select multiple size="6"
+						id="platform" name="platform"
+						class="form-control"
+						ng-model="platform">
+						<option value="all">All</option>
+						<option value="linux">Linux</option>
+						<option value="osx">OS X</option>
+						<option value="windows">Windows</option>
+						<option value="web">Web</option>
+						<option value="other">Other</option>
+					</select>
+					<p class="help-block">The platform that this project runs on</p>
 				</div>
+			</fieldset>
+
+			<input type="hidden" ng-model="url">
+			<input type="hidden" ng-model="name">
+			<input type="hidden" ng-model="owner">
+			<input type="hidden" ng-model="archive">
+
+		</div>
+	</div>
+
+	<div class="row mt">
+		<div class="col-lg-12">
+
+			<fieldset ng-show="archive">
+			<h2>Next, create your code archive:</h2>
+
+				<!--<legend>Post to a repository</legend>-->
+				<button type="submit" class="btn btn-primary">Archive in figshare</button>
+			</fieldset>
+
+		</div>
+	</div>
+</form>
+
+</div><!-- container -->
+
+<footer>
+	<div class="container">
+		<div class="row mt">
+			<div class="col-lg-12">
+				<a href="../">About</a>
 			</div>
 		</div>
-	</footer>
+	</div>
+</footer>
 
 </body>
