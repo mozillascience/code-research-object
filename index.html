@@ -73,70 +73,39 @@
 	<!-- EXTENSIONS -->
 	<div class="container" id="extensions">
 		<div class="row mt">
-			<div class="col-lg-12">
-				<h1>Install</h1>
+			<div class="col-lg-6">
+				<h2>Firefox</h2>
+
+				<p>
+					<i class="fa fa-circle cro-step-number"><span>1</span></i>
+					Install <a href="https://addons.mozilla.org/en-US/firefox/addon/code-as-a-research-object/">the browser extension</a>.
+					<span style="padding-left:48px;display:block"><img src="images/doi-button.png"></span>
+				</p>
+
+				<p>
+					<i class="fa fa-circle cro-step-number"><span>2</span></i>
+					While viewing a GitHub repository, press the "Get a DOI" button.
+				</p>
 			</div>
-		</div>
 
-		<div>
-			<p>
-				<i class="fa fa-circle cro-step-number"><span>1</span></i>
-				Drag this button to your browser's bookmarks toolbar: <a href="javascript:location.href='http://mozillascience.github.io/code-research-object/form/%23/?url='+encodeURIComponent(location.href)" class="btn btn-primary browser-action">Get a DOI</a>
-			</p>
+			<div class="col-lg-6">
+				<h2>Other web browsers</h2>
 
-			<p>
-				<i class="fa fa-circle cro-step-number"><span>2</span></i>
-				In a GitHub repository, press the "Get a DOI" button.
-			</p>
-		</div>
+				<p>
+					<i class="fa fa-circle cro-step-number"><span>1</span></i>
+					Drag this button to your browser's bookmarks toolbar:
+					<span style="padding-left:48px;display:block"><a href="javascript:location.href='http://mozillascience.github.io/code-research-object/form/%23/?url='+encodeURIComponent(location.href)" class="btn btn-primary browser-action">Get a DOI</a></span>
+				</p>
 
-		<!--
-		<div>
-			<p>
-				<i class="fa fa-circle cro-step-number"><span>1</span></i>
-				Install a browser extension or bookmarklet from the list below
-			</p>
-
-			<p>
-				<i class="fa fa-circle cro-step-number"><span>2</span></i>
-				In a GitHub repository, press "Get a DOI"
-			</p>
+				<p>
+					<i class="fa fa-circle cro-step-number"><span>2</span></i>
+					In a GitHub repository, press your "Get a DOI" button.
+				</p>
+			</div>
 		</div>
 
 		<div class="row mt">
-			<div class="col-lg-3">
-				<h3>Firefox</h3>
-				<div>
-					<a href="" class="btn btn-primary">TODO</a>
-				</div>
-			</div>
-
-			<div class="col-lg-3">
-				<h3>Chrome</h3>
-				<div>
-					<a href="" class="btn btn-primary">TODO</a>
-				</div>
-			</div>
-
-			<div class="col-lg-3">
-				<h3>Safari</h3>
-				<div>
-					<a href="" class="btn btn-primary">TODO</a>
-				</div>
-			</div>
-
-			<div class="col-lg-3">
-				<h3>Other</h3>
-				<div>
-					<a href="javascript:location.href='http://git.macropus.org/cro/form/%23/?url='+encodeURIComponent(location.href)" class="btn btn-primary">Get a DOI</a>
-				</div>
-				<p>Drag this button<br>to your browser's toolbar</p>
-			</div>
-		</div>
-		-->
-
-		<div class="row mt">
-			<p>Or enter the URL of your GitHub repository here:</p>
+			<p>Or simply enter the URL of your GitHub repository here:</p>
 
 			<form action="form/" onsubmit="location.href=this.action+'#/?url='+encodeURIComponent(this.url.value); return false">
 				<div class="input-group">
