@@ -27,11 +27,12 @@ app.controller('croController', function croController($scope, $location, $http,
 			});
 
 			request.success(function (data, status, headers, config) {
+				$scope.error = null;
 				$scope.url = data.html_url;
 				$scope.homepage = data.homepage;
 				$scope.name = data.name;
 				$scope.owner = data.owner.login;
-				$scope.repository = $scope.owner + '/' + $scope.name
+				$scope.repository = $scope.owner + '/' + $scope.name;
 				$scope.summary = data.description;
 				$scope.keywords = [];
 				//$scope.license = 'Unknown'; // TODO: describe license information
@@ -50,6 +51,7 @@ app.controller('croController', function croController($scope, $location, $http,
 
 			request.error(function(data, status, headers, config) {
 				console.log(data);
+				$scope.error = 'We were unable to find that repository. Are you sure the URL was correct?';
 			});
 		}, 1000);
 	};
@@ -63,7 +65,7 @@ app.controller('croController', function croController($scope, $location, $http,
 		        Accept: 'application/vnd.github.v3'
 		    },
 		});
-	}
+	};
 
 	var fetchOwner = function(user) {
 		request = fetchUser(user);

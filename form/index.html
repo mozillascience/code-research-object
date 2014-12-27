@@ -50,7 +50,8 @@
 			<div class="row mt">
 				<div class="col-lg-12">
 
-					<div ng-show="query.url &amp;&amp; !archive">Fetching repository information…</div>
+					<div ng-show="query.url &amp;&amp; !archive &amp;&amp; !error">Fetching repository information…</div>
+					<div ng-show="query.url &amp;&amp; !archive &amp;&amp; error"> {{error}} </div>
 
 					<fieldset ng-show="archive">
 						<h2>Project Metadata</h2>
